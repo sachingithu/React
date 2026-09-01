@@ -1,0 +1,15 @@
+{
+    "title":"Apple iPhone 17 (Saffron,256 GB)",
+    "image":"iphone_17.webp",
+    "price":150000,
+    "rating":{
+        "rate":4.6,
+        "ratings":200472,
+        "reviews":64590
+    },
+    "offers":[
+        "Bank offer 5% cashback on Axis Bank",
+        "Bank offer 6% cashback on SBI Bank",
+        "Bank offer 5% cashback on HDFC Bank"
+    ]
+}
