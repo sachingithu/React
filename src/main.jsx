@@ -12,6 +12,10 @@ import { Shopping } from './components/shopping/shopping.jsx'
 import { EventDemo } from './components/event-demo/event-demo.jsx'
 import { EmiCalculator } from './components/emi-calculator/emi-calculator.jsx'
 import { WeatherApp } from './components/weather-app/weather-app.jsx'
+import { DebounceDemo } from './components/debounce/debounce-dmo.jsx'
+import { ThrottleDemo } from './components/throttle-demo/throttle-demo.jsx'
+import { CarausalDemo } from './components/carausal-demo/carausal-demo.jsx'
+import { FormDemo } from './components/form-demo/form-demo.jsx'
 createRoot(document.getElementById('root')).render(
   <>
   {/* <StrictMode> */}
@@ -21,7 +25,11 @@ createRoot(document.getElementById('root')).render(
     {/* <Shopping/> */}
     {/* <EventDemo/> */}
     {/* <EmiCalculator/> */}
-    <WeatherApp/>
+    {/* <WeatherApp/> */}
+    {/* <DebounceDemo/> */}
+    {/* <ThrottleDemo/> */}
+    {/* <CarausalDemo/> */}
+    <FormDemo/>
    {/* </StrictMode>, */}
   </>
 )
