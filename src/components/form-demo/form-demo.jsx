@@ -1,87 +1,186 @@
 import { useFormik } from "formik"
 
 export function FormDemo() {
-    function ValidateUser(user){
-        let errors={Username:'',Age:'',Mobile:'',City:'',Gender};
+    function ValidateUser(user) {
 
-        if(user.Username.length===0){
-            errors.Username='Username is Required'
-        }else{
-            if(user.Username.length<4){
-                errors.Username='Name is Too short -min 4 char required';
-             }else{
-                errors.Username='';
-             }
-        }
+        let errors = { UserName: '', Age: '', Mobile: '', City: '', Gender: '' };
 
-        if(user.Age.length===0){
-            errors.Age='Age is required'
-        }else{
-            if(isNaN(user.Age)){
-                errors.Age='Age must be a number'
-            }else{
-                errors.Age='';
+        if (user.UserName.length === 0) {
+            errors.UserName = 'User Name Required';
+        } else {
+
+        if (user.UserName.length < 4) {
+              errors.UserName = 'Name too short - min 4 chars';
+
+            } else {
+
+                errors.UserName = '';
+
             }
+
         }
+
+        if (user.Age.length === 0) {
+            errors.Age = 'Age Required';
+
+        } else {
+
+            if (isNaN(user.Age)) {
+
+                errors.Age = 'Age must be a number';
+
+            } else {
+
+                errors.Age = '';
+
+            }
+
+        }
+        if (user.City === "-1") {
+
+            errors.City = 'Please select your city';
+
+        } else {
+
+            errors.City = '';
+
+        }
+
+
+
+        if (user.Mobile.length === 0) {
+
+            errors.Mobile = 'Mobile Required';
+
+        } else {
+
+            if (user.Mobile.match(/\+91\d{10}/)) {
+
+                errors.Mobile = '';
+
+            } else {
+
+                errors.Mobile = 'Invalid Mobile';
+
+            }
+
+        }
+
+
+
+        if (user.Gender === '') {
+
+            errors.Gender = 'Please select gender';
+
+        } else {
+
+            errors.Gender = '';
+
+        }
+
+
+
         return errors;
+
     }
 
-    if(user.City===-1){
-        errors.city='Please Select Your City'
-    }else{
-        errors.City=''
-    }
-    if(user.Mobile.length===0){
-        errors.Mobile='Mobile Required';
-    }else{
-        if(user.Mobile.match(/\+91\d{10}/)){
-            errors.Mobile='';
-        }else{
-            errors.Mobile='Invalid Mobile'
-        }
-    }
-    const formik=useFormik({
-        initialValues:{
-            username:'',
-            age:0,
-            mobile:'',
-            city:'',
-            Gender:''
+
+
+    const formik = useFormik({
+
+        initialValues: {
+
+            UserName: '',
+
+            Age: '',
+
+            Mobile: '',
+
+            City: '-1',
+
+            Gender: ''
+
         },
-        validate:ValidateUser,
-        onSubmit:(user)=>{
-            console.log(user)
+
+        validate: ValidateUser,
+
+        onSubmit: (user) => {
+
+            console.log(user);
+
         }
+
     })
+
+
+
+
+
     return (
+
         <div className="container-fluid">
+
+            <h2>Register User</h2>
+
             <form onSubmit={formik.handleSubmit}>
+
                 <dl>
-                    <dt>Username :</dt>
-                    <dd><input type="text" onChange={formik.handleChange} name="username" /></dd>
-                    <dd className="text-danger">{formik.errors.username}</dd>
-                    <dt>Age :</dt>
-                    <dd><input type="number" onChange={formik.handleChange} name="age" /></dd>
-                    <dt>Mobile :</dt>
-                    <dd><input type="text" onChange={formik.handleChange} name="mobile" /></dd>
-                    <dt>City :</dt>
+
+                    <dt>User Name</dt>
+
+                    <dd><input type="text" onChange={formik.handleChange} name="UserName" /></dd>
+
+                    <dd className="text-danger">{formik.errors.UserName}</dd>
+
+                    <dt>Age</dt>
+
+                    <dd><input type="number" onChange={formik.handleChange} name="Age" /></dd>
+
+                    <dd className="text-danger">{formik.errors.Age}</dd>
+
+                    <dt>Mobile</dt>
+
+                    <dd><input type="text" onChange={formik.handleChange} name="Mobile" /></dd>
+
+                    <dd className="text-danger">{formik.errors.Mobile}</dd>
+
+                    <dt>City</dt>
+
                     <dd>
-                        <select name="city" onChange={formik.handleChange}>
-                            <option value={-1}>Select City</option>
+
+                        <select name="City" onChange={formik.handleChange}>
+
+                            <option value="-1">Select City</option>
+
+                            <option>Delhi</option>
+
+                            <option>Hyderabad</option>
                             <option>Pune</option>
-                            <option>Mumbai</option>
-                            <option>Jalna</option>
                         </select>
+
                     </dd>
+
+                    <dd className="text-danger">{formik.errors.City}</dd>
+
                     <dt>Gender</dt>
+
                     <dd>
-                        <input onChange={formik.handleChange} type="radio"  name="Gender" value="Male"/> <label>Male</label>
-                        <input onChange={formik.handleChange} type="radio" name="Gender" value="Female"/> <label>Female</label>
+
+                        <input onChange={formik.handleChange} type="radio" name="Gender" value="Male" /> <label>Male</label>
+
+                        <input onChange={formik.handleChange} type="radio" name="Gender" value="Female" /> <label>Female</label>
+
                     </dd>
+
+                    <dd className="text-danger">{formik.errors.Gender}</dd>
+
                 </dl>
+
                 <button type="submit">Submit</button>
+
             </form>
 
         </div>
+
     )
 }

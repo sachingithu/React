@@ -25,7 +25,7 @@ export function ThrottleDemo() {
         }
         setMS(miliseconds);
         setSecond(seconds);
-        setMinit(min);
+        setMinit(minit);
 
     }
     function handleStartClick(){

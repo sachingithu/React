@@ -18,6 +18,7 @@ import { CarausalDemo } from './components/carausal-demo/carausal-demo.jsx'
 import { FormDemo } from './components/form-demo/form-demo.jsx'
 import { ConditionDemo } from './components/condition-demo/condition-demo.jsx'
 import { ControlledDemo } from './components/controlled-demo/controlled-demo.jsx'
+import { FormikDemo } from './components/formik-demo/formik-demo.jsx'
 createRoot(document.getElementById('root')).render(
   <>
   {/* <StrictMode> */}
@@ -29,11 +30,12 @@ createRoot(document.getElementById('root')).render(
     {/* <EmiCalculator/> */}
     {/* <WeatherApp/> */}
     {/* <DebounceDemo/> */}
-    {/* <ThrottleDemo/> */}
+     {/* <ThrottleDemo/> */}
     {/* <CarausalDemo/> */}
     {/* <FormDemo/> */}
     {/* <ConditionDemo/> */}
     <ControlledDemo/>
+    {/* <FormikDemo/> */}
    {/* </StrictMode>, */}
   </>
 )
