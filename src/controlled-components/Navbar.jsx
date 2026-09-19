@@ -1,10 +1,10 @@
 
 export function Navbar(props) {
-    {
 
-        if (props.orientation === "landscape") {
-            return(
-            <nav className="d-flex flex-row my-2 justify-content-between align-items-center p-2 border border-1 border-secondary">
+
+    if (props.orientation === "landscape") {
+        return (
+            <nav className={`d-flex flex-row my-2 justify-content-between align-items-center p-2 border border-1 border-secondary ${props.theme}`}>
                 <div className="fw-b fs-4">
                     <span className={props.brandLogo}></span>
                     <span className={props.brandTitle}></span>
@@ -20,16 +20,18 @@ export function Navbar(props) {
                     <span className="bi bi-cart4"></span>
                 </div>
             </nav>
-        }
-        else {
-            <nav className="d-flex flex-column my-2 justify-content-between align-items-center p-2 border border-1 border-secondary" style={{ width: '200px' }}>
+
+        )
+    } else {
+        return (
+            <nav className={`d-flex ${props.theme} flex-column my-2 justify-content-between align-items-center p-2 border border-1 border-secondary`} style={{width:'200px',height:'400px'}}>
                 <div className="fw-b fs-4">
                     <span className={props.brandLogo}></span>
                     <span className={props.brandTitle}></span>
                 </div>
-                <div>
+                <div className="d-flex flex-column">
                     {
-                        props.menuItems.map(item => <span key={item} className="mx-4">{item}</span>)
+                        props.menuItems.map(item => <span key={item} className="mx-4 my-2">{item}</span>)
                     }
                 </div>
                 <div>
@@ -38,8 +40,9 @@ export function Navbar(props) {
                     <span className="bi bi-cart4"></span>
                 </div>
             </nav>
-                )
-        }
-    
+
+        )
     }
+
+
 }

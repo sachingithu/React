@@ -19,6 +19,11 @@ import { FormDemo } from './components/form-demo/form-demo.jsx'
 import { ConditionDemo } from './components/condition-demo/condition-demo.jsx'
 import { ControlledDemo } from './components/controlled-demo/controlled-demo.jsx'
 import { FormikDemo } from './components/formik-demo/formik-demo.jsx'
+import { ContextDemo } from './components/context-demo/context-demo.jsx'
+import { FakestoreIndex } from './fakestore/fakestore-index.jsx'
+import { FakestorIndex } from './fakestore/fakestoreindex.jsx'
+import { MemoDemo } from './components/memo-demo/memo-demo.jsx'
+
 createRoot(document.getElementById('root')).render(
   <>
   {/* <StrictMode> */}
@@ -34,8 +39,12 @@ createRoot(document.getElementById('root')).render(
     {/* <CarausalDemo/> */}
     {/* <FormDemo/> */}
     {/* <ConditionDemo/> */}
-    <ControlledDemo/>
+    {/* <ControlledDemo/> */}
+    {/* <ContextDemo/> */}
     {/* <FormikDemo/> */}
+    {/* <FakestoreIndex/> */}
+   {/* <FakestorIndex/> */}
+   <MemoDemo/>
    {/* </StrictMode>, */}
   </>
 )
