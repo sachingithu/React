@@ -23,6 +23,7 @@ import { ContextDemo } from './components/context-demo/context-demo.jsx'
 import { FakestoreIndex } from './fakestore/fakestore-index.jsx'
 import { FakestorIndex } from './fakestore/fakestoreindex.jsx'
 import { MemoDemo } from './components/memo-demo/memo-demo.jsx'
+import { TutorialIndex } from './tutorial/tutorial-index.jsx'
 
 createRoot(document.getElementById('root')).render(
   <>
@@ -44,7 +45,8 @@ createRoot(document.getElementById('root')).render(
     {/* <FormikDemo/> */}
     {/* <FakestoreIndex/> */}
    {/* <FakestorIndex/> */}
-   <MemoDemo/>
+   {/* <MemoDemo/> */}
+   <TutorialIndex/>
    {/* </StrictMode>, */}
   </>
 )
