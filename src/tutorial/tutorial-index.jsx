@@ -1,8 +1,9 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { WeatherApp } from "../components/weather-app/weather-app";
+import { Details } from "./details";
 
-export function TutorialIndex(){
-    return(
+export function TutorialIndex() {
+    return (
         <div className="container-fluid">
             <BrowserRouter>
                 <header className="text-center fs-2 fw-bold bg-danger text-white p-2">
@@ -15,11 +16,12 @@ export function TutorialIndex(){
                 </header>
                 <section className="mt-5 p-4">
                     <Routes>
-                        <Route path="/" element={<div><h4>Tutorial Home</h4><p>React | Java</p></div>}/>
-                        <Route path="java" element={<div><h4>Java Tutorial</h4><p>Core | Advance</p></div>}/>
-                        <Route path="react" element={<div><h4>React Tutorial</h4><p>Component | Routing | Hooks</p></div>}/>
-                        <Route path="*" element={<div><span><h4>Not Found Path</h4><p>Requested tutorial not found</p></span></div>}/>
-                        <Route path="weather" element={<WeatherApp/>}/>
+                        <Route path="/" element={<div><h4>Tutorial Home</h4><p>React | Java</p></div>} />
+                        <Route path="java" element={<div><h4>Java Tutorial</h4><p>Core | Advance</p></div>} />
+                        <Route path="react" element={<div><h4>React Tutorial</h4><p>Component | Routing | Hooks</p></div>} />
+                        <Route path="weather" element={<WeatherApp />} />
+                        <Route path="details/:id/:name/:price" element={<Details/>}/>
+                        <Route path="*" element={<div><span><h4>Not Found Path</h4><p>Requested tutorial not found</p></span></div>} />
                     </Routes>
                 </section>
             </BrowserRouter>
