@@ -15,8 +15,9 @@ export function ShoppingIndex() {
                 <section>
                     <Routes>
                         <Route path="/" element={<ShoppingHome />} />
-                        <Route path="products/:category" element={<ShoppingProducts />} />
+                        <Route path="products/:category" element={<ShoppingProducts />}>
                         <Route path="details/:id" element={<ShoppingDetails />} />
+                        </Route>
                     </Routes>
                 </section>
             </BrowserRouter>
