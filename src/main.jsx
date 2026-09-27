@@ -25,6 +25,7 @@ import { FakestorIndex } from './fakestore/fakestoreindex.jsx'
 import { MemoDemo } from './components/memo-demo/memo-demo.jsx'
 import { TutorialIndex } from './tutorial/tutorial-index.jsx'
 import { ShoppingIndex } from './shopping/shopping-index.jsx'
+import { CookiesProvider } from 'react-cookie'
 
 createRoot(document.getElementById('root')).render(
   <>
@@ -48,7 +49,9 @@ createRoot(document.getElementById('root')).render(
    {/* <FakestorIndex/> */}
    {/* <MemoDemo/> */}
    {/* <TutorialIndex/> */}
+   <CookiesProvider>
    <ShoppingIndex/>
+   </CookiesProvider>
    {/* </StrictMode>, */}
   </>
 )

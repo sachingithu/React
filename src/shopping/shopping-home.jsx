@@ -14,6 +14,7 @@ export function ShoppingHome(){
     return(
         <div className="container-fluid">
             <h3>Home</h3>
+            <Link to="/search">Search</Link>
             <ul className="list-group list-unstyled w-25">
                 {
                     categories.map(category=>

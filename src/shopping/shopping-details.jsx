@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom"
+import { Link, useOutletContext, useParams } from "react-router-dom"
 
 export function ShoppingDetails(){
     const [product,setProduct]=useState([{id:0,title:null,price:0,description:null,rating:{rate:0,count:0}}]);
 
+        let contxtData=useOutletContext();
     let params=useParams();
     useEffect(()=>{
         axios.get(`https://fakestoreapi.com/products/${params.id}`)
@@ -12,7 +13,8 @@ export function ShoppingDetails(){
                 console.log('product',response.data)
                 setProduct(response.data);
              })
-    },[])
+    },[params.id])
+    console.log(contxtData);
     return(
         <div className="container-fluid">
             <h4>Details</h4>

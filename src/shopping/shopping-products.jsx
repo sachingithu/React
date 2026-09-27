@@ -2,10 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, Outlet, useParams } from "react-router-dom";
 
-export function ShoppingProducts() {
+export default function ShoppingProducts() {
     const [products, setProducts] = useState([{ id: 0, title: null, price: 0, category: null, descriptin: null, image: null, rating: { rate: 0, count: 0 } }])
     let params = useParams();
 
+    const [contextData,setContextData]=useState("This data is coming from context");
     useEffect(() => {
         axios.get(`https://fakestoreapi.com/products/category/${params.category}`)
             .then(response => {
@@ -28,7 +29,7 @@ export function ShoppingProducts() {
                                     </div>
                                 </div>
                             )
-                        }
+                        } 
                     </div>
                     <div>
                         <Link to="/">Back To Home</Link>
@@ -36,7 +37,7 @@ export function ShoppingProducts() {
                 </div>
             </div>
             <div className="col-4">
-                <Outlet />
+                <Outlet context={contextData}/>
             </div>
         </div>
 

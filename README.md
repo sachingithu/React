@@ -320,7 +320,7 @@ Syntax:
 	    </Routes>
 	</BrowserRouter>
 	
-Q)What is relative path/route and what is absolute path/route?
+Q)What is relative path/route and what is absolute path/route? 
 ->relative path is appended to the existing path which is required for child route to be accessed within context of parent
 ->absolute path cleans up existing path and sets a new path,It is not related to any context
 
@@ -333,7 +333,52 @@ Q)What is relative path/route and what is absolute path/route?
 			<Route path="child" element={<Child/>}/>
 		</Route>
 
+Q)What is outlet context?{vdo:28}
+-child element is rendered into parent, but it requires an outlet
+-Route <Outlet/> specifies location where resulting markup is rendered
+->Rote Outlet is built with context memory and Outlet context is used for transferring data from parent to child so we can send data from parent to child
 
+Syntax : <Outlet context={data}/>
+
+-So above syntax says that when data is passed into the context. means that in outlet
+ area whichever child component renders it can access the data. so that we can pass 
+the data from parent to child
+-child routes can acces outlest context by using useOutletContext() hook
+Syntax: let context=useOutletContext();
+
+Q)how data can be transported from parent to child routes?
+-for transporting data from parent to child routes we do have multiple techniques
+ like Route params,search params, outlet context
+
+Q)Explain about search params?
+->A form can submit its data on GET request
+->Data is submitted  as query string
+->Query String is key and value collection, we can access it using useSearchParams hook.
+->It returns an array of results with getter and setter
+syntax :
+let[getter]=useSearchParams();
+getter.get('key');
+http://localhost:port/path?key1=value1&key2=value2...
+----------
+VImp Note: for accessing query string in javascript we use location.search
+----------
+Q)How search parameters are accessed by virtual DOM?
+->useSearchParams is hook that maps to URLSearchParams of browser window object
+->URLSearchParams use  a location.search to fetch the query string and convert into 
+  Map.[key,value]
+
+Q)Can we have multiple route outlet? 
+-Yes we can have multiple route outlet
+
+Dynamic Navigation :
+-------------------
+->It is navigating user from one route to another automatically
+->It verfies the state and situation and navigates to specified path dynamically
+->React router dom can manage dynamic navigation using useNavigate() hook.
+syntax:
+ 	let navigate=useNavigate();
+	navigate('path',{options})
+********
 Q)What is useContext()?
 ->It uses the context memory
 ->The context memory is memory which is allocated to parent and which is shared to child
@@ -406,6 +451,5 @@ Syntax:
 	export const{action1,action2}=slicerName.actions;
 	export default slicerName.reducer;
 4)Create and configure the store
-
 
 
