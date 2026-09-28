@@ -26,6 +26,8 @@ import { MemoDemo } from './components/memo-demo/memo-demo.jsx'
 import { TutorialIndex } from './tutorial/tutorial-index.jsx'
 import { ShoppingIndex } from './shopping/shopping-index.jsx'
 import { CookiesProvider } from 'react-cookie'
+import { RouterProvider } from 'react-router-dom'
+import { router } from './routes/routes.jsx'
 
 createRoot(document.getElementById('root')).render(
   <>
@@ -50,7 +52,8 @@ createRoot(document.getElementById('root')).render(
    {/* <MemoDemo/> */}
    {/* <TutorialIndex/> */}
    <CookiesProvider>
-   <ShoppingIndex/>
+        {/* <ShoppingIndex/> */}
+        <RouterProvider router={router}></RouterProvider>
    </CookiesProvider>
    {/* </StrictMode>, */}
   </>
